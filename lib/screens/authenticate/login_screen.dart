@@ -3,7 +3,10 @@ import 'package:my_food_application/constant/constant.dart';
 import 'package:my_food_application/controller/login_validate_controller.dart';
 import 'package:my_food_application/custom/already_account.dart';
 import 'package:my_food_application/custom/custom_button.dart';
+import 'package:my_food_application/custom/page_route.dart';
 import 'package:provider/provider.dart';
+
+import '../forget_password.dart';
 
 class LoginScreen extends StatefulWidget {
   final Function login;
@@ -19,6 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   String emailText = 'Your Email';
   String passwordText = 'Your Password';
+  final String forget = 'Reset Your Password';
   bool obscure = false;
   bool visible = true;
   late bool loading = false;
@@ -91,10 +95,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: visible,
                     style: inputStyle()),
               ),
-              AlreadyAccount(
-                  onTap: () => widget.login(),
-                  message: 'Already have an account?',
-                  title: 'signin'),
+              Padding(
+                padding: EdgeInsets.all(20.0),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: InkWell(
+                    onTap: () =>
+                        goToNext(context: context, screen: ForgetPassword()),
+                    child: Text(forget,
+                        style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold)),
+                  ),
+                ),
+              ),
               controller.loading != false
                   ? CircularProgressIndicator()
                   : myButton(
@@ -103,6 +118,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         controller.loginController(
                             context, emailController, passwordController);
                       }),
+              AlreadyAccount(
+                  onTap: () => widget.login(),
+                  message: 'Already have an account?',
+                  title: 'signin'),
             ],
           ),
         ),

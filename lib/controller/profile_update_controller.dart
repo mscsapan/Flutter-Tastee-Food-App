@@ -12,16 +12,18 @@ class ProfileUpdateController with ChangeNotifier {
     if (name.text.trim().isEmpty) {
       warning.showSnackBar(context, 'Field can\'t be Empty');
       return;
-    } else if (name.text.contains(model.userName)) {
+    } /*else if (name.text.contains(model.userName)) {
       warning.showSnackBar(context, 'You\'ve inserted your same name');
       return;
-    } else if (email.text.trim().isEmpty) {
+    }*/
+    else if (email.text.trim().isEmpty) {
       warning.showSnackBar(context, 'Field can\'t be Empty');
       return;
-    } else if (email.text.contains(model.userEmail)) {
+    } /*else if (email.text.contains(model.userEmail)) {
       warning.showSnackBar(context, 'You\'ve inserted your same email');
       return;
-    } else if (!email.text.contains('@')) {
+    }*/
+    else if (!email.text.contains('@')) {
       warning.showSnackBar(context, 'You\'ve inserted your same email');
       return;
     } else {

@@ -15,7 +15,7 @@ class AlreadyAccount extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: defaultPadding + 4.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             message,
