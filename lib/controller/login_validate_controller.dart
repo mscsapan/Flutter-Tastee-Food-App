@@ -7,6 +7,7 @@ class LoginController extends ChangeNotifier {
   UserCredential? credential;
   bool loading = false;
 
+
   void loginController(
     BuildContext context,
     TextEditingController email,

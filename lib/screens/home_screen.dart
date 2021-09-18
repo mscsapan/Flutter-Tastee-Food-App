@@ -20,6 +20,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   double conSize = 190.0;
+
   sizedBox() => SizedBox(height: 10.0);
   TextEditingController searchController = TextEditingController();
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -53,11 +54,9 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text('Home'),
           actions: [
             IconButton(
-                onPressed: () {
-                  FirebaseAuth.instance.signOut().then((value) {
-                    goToNext(context: context, screen: ToggleScreen());
-                  });
-                },
+                onPressed: () => FirebaseAuth.instance.signOut().then((value) {
+                      goToNext(context: context, screen: ToggleScreen());
+                    }),
                 icon: Icon(Icons.exit_to_app))
           ],
           automaticallyImplyLeading: true,

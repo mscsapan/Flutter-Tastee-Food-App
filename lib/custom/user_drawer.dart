@@ -1,11 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_food_application/constant/constant.dart';
 import 'package:my_food_application/custom/page_route.dart';
 import 'package:my_food_application/screens/authenticate/toggle_screen.dart';
 import 'package:my_food_application/screens/home_screen.dart';
+import 'package:my_food_application/screens/product_main_screen.dart';
 import 'package:my_food_application/screens/profile/profile.dart';
-
+@immutable
 class UserDrawer extends StatelessWidget {
   List<String> title = [
     'profile',
@@ -41,12 +43,17 @@ class UserDrawer extends StatelessWidget {
               icon: icons[0],
               onTap: () => goToNext(context: context, screen: ProfileScreen())),
           buildListTile(title: title[1], icon: icons[1], onTap: () {}),
-          buildListTile(title: title[2], icon: icons[2], onTap: () {}),
+          buildListTile(
+              title: title[2],
+              icon: icons[2],
+              onTap: () => goToNext(context: context, screen: ProductScreen())),
           buildListTile(title: title[3], icon: icons[3], onTap: () {}),
           buildListTile(
               title: title[4],
               icon: icons[4],
-              onTap: () => goToNext(context: context, screen: ToggleScreen())),
+              onTap: () => FirebaseAuth.instance.signOut().then((value) {
+                    goToNext(context: context, screen: ToggleScreen());
+                  })),
         ],
       ),
     );
