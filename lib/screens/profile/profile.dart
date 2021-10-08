@@ -45,8 +45,8 @@ class ProfileScreen extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${model.userName}', style: profileStyle()),
-                    Text('${model.userEmail}', style: profileStyle())
+                    Text('${model!.userName}', style: profileStyle()),
+                    Text('${model!.userEmail}', style: profileStyle())
                   ]),
             ),
             SizedBox(height: 30.0),

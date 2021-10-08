@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     LoginController controller =
-        Provider.of<LoginController>(context, listen: false);
+        Provider.of<LoginController>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         title: Text('Login', style: TextStyle(color: mBlack, fontSize: 26.0)),

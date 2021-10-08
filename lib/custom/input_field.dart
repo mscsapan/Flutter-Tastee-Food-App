@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_food_application/constant/constant.dart';
@@ -8,12 +7,10 @@ class InputField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final Widget? suffixIcon;
-  final GlobalKey<ScaffoldState> key;
   InputField(
       {required this.controller,
       required this.hintText,
       required this.obscureText,
-      required this.key,
       this.suffixIcon});
 
   @override

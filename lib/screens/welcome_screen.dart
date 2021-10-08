@@ -19,15 +19,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   ];
 
   int _currentPosition = 0;
+
   buildDots({required int position}) {
     return Container(
       height: 10.0,
       width: _currentPosition == position ? 22.0 : 10.0,
       margin: EdgeInsets.only(right: 6),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color:
-              _currentPosition == position ? mDeepOrange1 : Color(0xFFD8D8D8)),
+        borderRadius: BorderRadius.circular(5),
+        color: _currentPosition == position ? mDeepOrange1 : Color(0xFFD8D8D8),
+      ),
     );
   }
 
@@ -44,15 +45,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               height: 400.0,
               width: double.infinity,
               child: PageView.builder(
-                  onPageChanged: (value) {
-                    setState(() {
-                      _currentPosition = value;
-                    });
-                  },
-                  itemCount: logos.length,
-                  itemBuilder: (context, index) {
-                    return Image.asset(logos[index]);
-                  }),
+                onPageChanged: (value) {
+                  setState(
+                    () => _currentPosition = value,
+                  );
+                },
+                itemCount: logos.length,
+                itemBuilder: (context, index) {
+                  return Image.asset(logos[index]);
+                },
+              ),
             ),
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -60,19 +62,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     logos.length, (index) => buildDots(position: index))),
             SizedBox(height: 35.0),
             Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0),
-                child: myButton(
-                    title: 'LogIn',
-                    onTap: () =>
-                        goToNext(context: context, screen: ToggleScreen()))),
-            /*Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0),
-                child: myButton2(
-                    title: 'Sign In',
-                    onTap: () => goToNext(
-                          context: context,
-                          screen: ToggleScreen(),
-                        ))),*/
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              child: myButton(
+                title: 'LogIn',
+                onTap: () => goToNext(context: context, screen: ToggleScreen()),
+              ),
+            ),
           ],
         ),
       ),

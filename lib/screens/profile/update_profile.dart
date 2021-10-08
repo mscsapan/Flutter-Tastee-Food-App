@@ -11,9 +11,9 @@ import 'package:provider/provider.dart';
 
 class UpdateProfile extends StatelessWidget {
   TextEditingController nameController =
-      TextEditingController(text: model.userName);
+      TextEditingController(text: model!.userName);
   TextEditingController emailController =
-      TextEditingController(text: model.userEmail);
+      TextEditingController(text: model!.userEmail);
   @override
   Widget build(BuildContext context) {
     ProfileUpdateController update =
@@ -44,7 +44,7 @@ class UpdateProfile extends StatelessWidget {
                     decoration: InputDecoration(
                         focusedBorder: defaultBorder,
                         border: defaultBorder,
-                        hintText: model.userName),
+                        hintText: model!.userName),
                     style: inputStyle(),
                     controller: nameController,
                   ),
@@ -54,7 +54,7 @@ class UpdateProfile extends StatelessWidget {
                     decoration: InputDecoration(
                         focusedBorder: defaultBorder,
                         border: defaultBorder,
-                        hintText: model.userEmail),
+                        hintText: model!.userEmail),
                     style: inputStyle(),
                   ),
                   SizedBox(height: 20.0),

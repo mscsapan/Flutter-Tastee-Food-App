@@ -11,7 +11,7 @@ import 'package:my_food_application/custom/user_drawer.dart';
 import 'package:my_food_application/model/user_model.dart';
 import 'package:my_food_application/screens/authenticate/toggle_screen.dart';
 
-late UserModel model;
+UserModel? model;
 
 class HomeScreen extends StatefulWidget {
   @override

@@ -7,6 +7,7 @@ import 'package:my_food_application/screens/authenticate/toggle_screen.dart';
 import 'package:my_food_application/screens/home_screen.dart';
 import 'package:my_food_application/screens/product_main_screen.dart';
 import 'package:my_food_application/screens/profile/profile.dart';
+
 @immutable
 class UserDrawer extends StatelessWidget {
   List<String> title = [
@@ -35,8 +36,8 @@ class UserDrawer extends StatelessWidget {
               currentAccountPicture: CircleAvatar(
                   backgroundImage: AssetImage('assets/images/non2.jpg')),
               arrowColor: Colors.red,
-              accountName: Text(model.userName),
-              accountEmail: Text(model.userEmail)),
+              accountName: Text(model!.userName),
+              accountEmail: Text(model!.userEmail)),
           SizedBox(height: 20.0),
           buildListTile(
               title: title[0],
